@@ -18,8 +18,31 @@ devtools::install_github("katerine-dev/scraperTheoffice")
 
 ## Descrição
 
+O objetivo do trabalho era scrapear alguma página que resultaria em uma
+base de dados. Foi escolhida a página do Wikipédia que contém a lista
+completa dos episódios de totas as temporadas da série [The
+Office](https://pt.wikipedia.org/wiki/Lista_de_epis%C3%B3dios_de_The_Office_(Estados_Unidos)).
+
+Para manter a consistência da atividade foi escolhido não utilizar a API
+documentada do Wikipédia.
+
 ## Passos
+
+-   1º Passo: Utilizando a ferramenta inspeccionar foi identificado que
+    os dados eram constituídos em formato de `/table`.
+-   2° Passo: Scrapear e parsear os dados.
+-   3º Passo: Limpeza da base de dados.
+-   4º Passo: Foi disponibilizada a base tidy no pacote.
 
 ## Base Tidy
 
+``` r
+#scrapperTheoffice::baseTheoffice |> 
+#  dplyr::glimpse()
+```
+
+descrever as colunas e dizer que a base foi documentada
+
 ## Análise descritiva e resultados
+
+tabela com os episódios com mais audiência.
