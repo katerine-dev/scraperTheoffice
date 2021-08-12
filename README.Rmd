@@ -1,0 +1,35 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# Projeto final do curso de Web Scraping
+
+<img src='man/fig/theoffice.png' align="center" height="139" /></a>
+<!-- badges: start -->
+<!-- badges: end -->
+
+Esse pacote foi produzido especialmente para o trabalho final do curso de Web Scraping. [curso-r](https://curso-r.com/). 
+
+## Instalação
+
+``` r
+# install.packages("devtools")
+devtools::install_github("katerine-dev/scraperTheoffice")
+```
+## Descrição
+
+
+## Passos 
+## Base Tidy
+## Análise descritiva e resultados

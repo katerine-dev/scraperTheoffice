@@ -1,3 +1,6 @@
+
+# Scraper ---------------------------------------------------------------------------------------------------------------------------------------
+
 URL_BASE <- "https://pt.wikipedia.org/wiki/"
 
 endpoint <- "Lista_de_episódios_de_The_Office_(Estados_Unidos)"
@@ -5,14 +8,11 @@ endpoint <- "Lista_de_episódios_de_The_Office_(Estados_Unidos)"
 url_completa <- paste0(URL_BASE, endpoint)
 
 response <-
-  httr::GET(url_completa, httr::write_disk("output/theoffice.html"))
+  httr::GET(url_completa, httr::write_disk("output/theoffice.html")) # guarda html
 
 html_file <- rvest::read_html("output/theoffice.html")
 
-library(tidyverse)
-library(tidyselect)
-
-tabelas <-  html_file |>
+tabelas_noprint <-  html_file |>
   rvest::html_nodes("table.wikitable.noprint.plainlinks.unsortable.uncollapsible") |>
   rvest::html_table() |>
   tibble::enframe() |>
@@ -35,7 +35,7 @@ tabelas <-  html_file |>
   dplyr::mutate(value = purrr::map(value, ~ dplyr::mutate(.x, codigo = as.character(codigo)))) |>
   tidyr::unnest(value)
 
-tabelas_restante <- html_file |>
+tabelas_plain <- html_file |>
   rvest::html_nodes("table.wikitable.plainrowheaders") |>
   rvest::html_table() |>
   tibble::enframe() |>
@@ -54,7 +54,12 @@ tabelas_restante <- html_file |>
     )
   )) |>
   tidyr::unnest(value) |>
-  dplyr::filter(!str_detect(n_total, "[a-zA-Z]"))
+  dplyr::filter(!stringr::str_detect(n_total, "[a-zA-Z]"))
 
-tabelas_prontas <- tabelas |>
-  dplyr::full_join(tabelas_restante)
+# join ------------------------------------------------------------------------------------------------------------------------------------------
+
+tabelas_prontas <- tabelas_noprint |>
+  dplyr::full_join(tabelas_plain)
+
+
+
