@@ -49,8 +49,18 @@ Para manter a consistência da atividade foi escolhido não utilizar a API docum
 #  dplyr::glimpse()
 ``` 
 
-descrever as colunas e dizer que a base foi documentada
+Em resultado do scraper obtive uma base com 163 linhas e 9 variaveis: (a base foi devidamente documentada: `R/utils-data`)
 
+Coluna     | Descrição
+----------|----------
+`temporada`| Temporada do episódio correspondente.
+`n_total`  | Número do episódio correspondente ao total de todas as temporadas.
+`n_episodio`  | Número do episódio correspondente a temporada.
+`dirigido_por`| Diretor do episódio.
+`escrito_por`| Escritor do roteiro do episódio.
+`audiencia`| Número da audiência na data de exibicao original. 
+`codigo`| Código referente ao episódio.
+`exibicao_original`| A data da exibicão original do episodio.
 
 ## Análise descritiva e resultados
 
