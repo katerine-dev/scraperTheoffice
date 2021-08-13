@@ -88,14 +88,14 @@ base foi devidamente documentada: `R/utils-data`)
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" />
 
-A séria foi ao ar pela primeira vez a 16 anos, ultrapassando diversas
-sérias da época como a série mais assistida dos Estados Unidos, mas
-apesar do enorme sucesso no seu tempo de permanência na TV a partir do
-ano de 2010 e após a saída do ator Steve Carrell (Michael Scott) a
-audiência foi diminuindo até o ultimo episodio exibido em 2013.
+A série foi ao ar pela primeira vez a 16 anos, ultrapassando diversas
+séries de sucessos da época, mas apesar do enorme sucesso no seu tempo
+de permanência na TV a partir do ano de 2010 e após a saída do ator
+Steve Carrell (Michael Scott) a audiência foi diminuindo até o ultimo
+episodio exibido em 2013.
 
 A série foi avaliada pelo [IMDB](https://www.imdb.com/title/tt0386676/)
-por **8.9** e após anos continua presente entre os memes diários de um
+por **8.9** e após anos continua presente entre os memes diários do
 cotidiano de um escritório.
 
 <img src='https://media.giphy.com/media/hyyV7pnbE0FqLNBAzs/giphy-downsized.gif' align="center"/></a>
