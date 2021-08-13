@@ -6,7 +6,11 @@ output: github_document
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
+  echo = FALSE, 
+  message = FALSE, 
+  warning = FALSE,
   collapse = TRUE,
+  fig.align = "center",
   comment = "#>",
   fig.path = "man/figures/README-",
   out.width = "100%"
@@ -44,7 +48,7 @@ Para manter a consistência da atividade foi escolhido não utilizar a API docum
 
 ## Base Tidy
 
-```{r}
+```{r echo = TRUE}
 scraperTheoffice::baseTheoffice |> 
   dplyr::glimpse()
 ``` 
@@ -56,6 +60,7 @@ Coluna     | Descrição
 `temporada`| Temporada do episódio correspondente.
 `n_total`  | Número do episódio correspondente ao total de todas as temporadas.
 `n_episodio`  | Número do episódio correspondente a temporada.
+`titulo`  | Nome do episódio.
 `dirigido_por`| Diretor do episódio.
 `escrito_por`| Escritor do roteiro do episódio.
 `audiencia`| Número da audiência na data de exibicao original. 
@@ -64,5 +69,52 @@ Coluna     | Descrição
 
 ## Análise descritiva e resultados
 
-tabela com os episódios com mais audiência. 
+#### Os episódios com mais audiência:
+ 
+```{r}
+scraperTheoffice::baseTheoffice |> 
+  dplyr::select(temporada, titulo, dirigido_por, audiencia) |> 
+  dplyr::top_n(10, audiencia) |> 
+  dplyr::arrange(desc(audiencia)) |> 
+   dplyr::rename("Temporada" = temporada,
+                "Título do episódio" = titulo,
+                "Diretor" = dirigido_por,
+                "Audiência" = audiencia) |> 
+  knitr::kable()
+```
 
+
+#### Audiência em relação aos anos de exibição:
+
+```{r}
+media_audiencia <- scraperTheoffice::baseTheoffice |> 
+  dplyr::filter(audiencia != "NA") |> 
+  dplyr::summarise(media = mean(audiencia))
+
+
+scraperTheoffice::baseTheoffice |> 
+  dplyr::select(exibicao_original, audiencia) |>
+  ggplot2::ggplot(ggplot2::aes(y = audiencia, x = exibicao_original, size = audiencia))+
+  ggplot2::geom_point(color = "#333333", alpha = .4)+
+    ggplot2::geom_smooth(
+    method = "loess",
+    formula = y ~ x,
+    span = 0.3,
+    colour = "#66a4ac",
+    se = FALSE
+  ) +
+   ggplot2::geom_hline(
+    yintercept = media_audiencia$media,
+    size = .5,
+    colour = "#E8110F",
+    linetype = 2
+  )+
+  ggplot2::labs(x = "Ano de exibição", y = "Audiência", size = "Audiência") +
+  ggplot2::theme_minimal(10)
+```
+
+A séria foi ao ar pela primeira vez a 16 anos, ultrapassando diversas sérias da época como a série mais assistida dos Estados Unidos, mas apesar do enorme sucesso no seu tempo de permanência na TV a partir do ano de 2010 e após a saída do ator Steve Carrell (Michael Scott) a audiência foi diminuindo até o ultimo episodio exibido em 2013. 
+
+A série foi avaliada pelo [IMDB](https://www.imdb.com/title/tt0386676/) por __8.9__ e após anos continua presente entre os memes diários de um cotidiano de um escritório.
+
+<img src='https://media.giphy.com/media/hyyV7pnbE0FqLNBAzs/giphy-downsized.gif' align="center"/></a>

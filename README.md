@@ -49,7 +49,7 @@ scraperTheoffice::baseTheoffice |>
 #> $ escrito_por       <chr> "Ricky Gervais, Stephen Merchant & Greg Daniels", "B…
 #> $ audiencia         <dbl> 11.2, 6.0, 5.8, 5.4, 5.0, 4.8, 9.0, NA, 8.3, 7.6, 8.…
 #> $ codigo            <chr> "100", "101", "105", "103", "104", "102", "203", "20…
-#> $ exibicao_original <chr[,3]> "24 de março de 2005", "29 de março de 2005", "5…
+#> $ exibicao_original <date> 2005-03-24, 2005-03-29, 2005-04-05, 2005-04-12, 200…
 ```
 
 Em resultado do scraper obtive uma base com 163 linhas e 9 variaveis: (a
@@ -60,6 +60,7 @@ base foi devidamente documentada: `R/utils-data`)
 | `temporada`         | Temporada do episódio correspondente.                              |
 | `n_total`           | Número do episódio correspondente ao total de todas as temporadas. |
 | `n_episodio`        | Número do episódio correspondente a temporada.                     |
+| `titulo`            | Nome do episódio.                                                  |
 | `dirigido_por`      | Diretor do episódio.                                               |
 | `escrito_por`       | Escritor do roteiro do episódio.                                   |
 | `audiencia`         | Número da audiência na data de exibicao original.                  |
@@ -68,4 +69,33 @@ base foi devidamente documentada: `R/utils-data`)
 
 ## Análise descritiva e resultados
 
-tabela com os episódios com mais audiência.
+#### Os episódios com mais audiência:
+
+| Temporada    | Título do episódio   | Diretor           | Audiência |
+|:-------------|:---------------------|:------------------|----------:|
+| 1ª temporada | “Pilot”              | Ken Kwapis        |     11.20 |
+| 3ª temporada | “Traveling Salesmen” | Greg Daniels      |     10.10 |
+| 3ª temporada | “Ben Franklin”       | Randall Einhorn   |     10.10 |
+| 4ª temporada | “Chair Model”        | Jeffrey Blitz     |      9.81 |
+| 2ª temporada | “Christmas Party”    | Charles McDougall |      9.70 |
+| 3ª temporada | “The Convict”        | Jeffrey Blitz     |      9.70 |
+| 4ª temporada | “Fun Run”            | Greg Daniels      |      9.70 |
+| 6ª temporada | “Niagara”            | Paul Feig         |      9.42 |
+| 5ª temporada | “Employee Transfer”  | David Rogers      |      9.32 |
+| 3ª temporada | “The Return”         | Greg Daniels      |      9.30 |
+
+#### Audiência em relação aos anos de exibição:
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" style="display: block; margin: auto;" />
+
+A séria foi ao ar pela primeira vez a 16 anos, ultrapassando diversas
+sérias da época como a série mais assistida dos Estados Unidos, mas
+apesar do enorme sucesso no seu tempo de permanência na TV a partir do
+ano de 2010 e após a saída do ator Steve Carrell (Michael Scott) a
+audiência foi diminuindo até o ultimo episodio exibido em 2013.
+
+A série foi avaliada pelo [IMDB](https://www.imdb.com/title/tt0386676/)
+por **8.9** e após anos continua presente entre os memes diários de um
+cotidiano de um escritório.
+
+<img src='https://media.giphy.com/media/hyyV7pnbE0FqLNBAzs/giphy-downsized.gif' align="center"/></a>

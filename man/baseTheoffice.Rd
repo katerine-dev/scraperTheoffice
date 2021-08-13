@@ -11,6 +11,7 @@ um data frame com 163 linhas e 9 variaveis:
 \item{temporada}{temporada do episodio.}
 \item{n_total}{numero do episodio correspondente ao total de todas as temporadas.}
 \item{n_episodio}{numero do episodio correspondente a temporada.}
+\item{titulo}{nome do episodio.}
 \item{dirigido_por}{diretor do episodio.}
 \item{escrito_por}{escritor do roteiro do episodio.}
 \item{audiencia}{numero da audiencia na data de exibicao original.}
