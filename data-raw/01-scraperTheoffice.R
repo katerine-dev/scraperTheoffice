@@ -1,4 +1,4 @@
-
+path_name <- "~/Documents/scraperTheoffice/data-raw/output/theoffice.html"
 # Scraper ---------------------------------------------------------------------------------------------------------------------------------------
 
 URL_BASE <- "https://pt.wikipedia.org/wiki/"
@@ -8,9 +8,9 @@ endpoint <- "Lista_de_episódios_de_The_Office_(Estados_Unidos)"
 url_completa <- paste0(URL_BASE, endpoint)
 
 response <-
-  httr::GET(url_completa, httr::write_disk("output/theoffice.html")) # guarda html
+  httr::GET(url_completa, httr::write_disk(path_name)) # guarda html
 
-html_file <- rvest::read_html("output/theoffice.html")
+html_file <- rvest::read_html(path_name)
 
 tabelas <-  html_file |>
   rvest::html_nodes("table") |>

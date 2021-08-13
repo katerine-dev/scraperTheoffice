@@ -45,8 +45,8 @@ Para manter a consistência da atividade foi escolhido não utilizar a API docum
 ## Base Tidy
 
 ```{r}
-#scrapperTheoffice::baseTheoffice |> 
-#  dplyr::glimpse()
+scraperTheoffice::baseTheoffice |> 
+  dplyr::glimpse()
 ``` 
 
 Em resultado do scraper obtive uma base com 163 linhas e 9 variaveis: (a base foi devidamente documentada: `R/utils-data`)
